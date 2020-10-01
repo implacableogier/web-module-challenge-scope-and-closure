@@ -91,7 +91,8 @@ function inning(/*Code Here*/){
   return points;
 
 }
-console.log(inning())
+
+
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of 
@@ -106,12 +107,27 @@ finalScore(inning, 9) might return:
 }
 
 */ 
+// create variables to keep track of separate scores for HOME and AWAY teams
+// 
 
-function finalScore(/*code Here*/){
+function finalScore(numOfInnings, inning){
+  let homeScore =  0;
+  let awayScore = 0;
+  
+  for (let i = 0; i < numOfInnings; i++) {
+    homeScore = homeScore + inning();
+    awayScore += inning();
+  }
 
-  /*Code Here*/
+  
+  return {
+    Home: homeScore,
+    Away: awayScore
+  }
+  
 
 }
+console.log(finalScore(9,inning))
 
 /* Task 4: 
 
