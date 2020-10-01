@@ -27,13 +27,20 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- *  Counter 2 uses a variable with global scope to 
+ * 
+ * Counter 2 references a variable with global scope to execute it's function, while counterMaker is self-referential 
+ * in the sense that it refers to a variable (count) which is defined within the scope of its own function.
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter1 uses a closure. This is evident from the fact that it's variables are not globally defined. That is, the variable
+ * that it references is defined within the confines of its own code and is not accessible anywhere outside of this code block.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * Counter 1 would be preferable if you did not need to reference the variable(s) defines within in any other context. counter2
+ * would be preferable if you needed to reference the counter variable in some other function, or if for any other reason you
+ * needed to reference count outside of that particular function.
 */
 
 // counter1 code
@@ -75,17 +82,20 @@ console.log(counter2())
 
 /* Task 2: inning() 
 
-Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
+Write a function called `inning` that returns a random number of points that a team scored in an inning. 
+This should be a whole number between 0 and 2. */
 
 function inning(/*Code Here*/){
 
-    /*Code Here*/
+  let points = Math.floor(Math.random()*3)
+  return points;
 
 }
-
+console.log(inning())
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
+Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of 
+innings and returns the final score of the game in the form of an object.
 
 For example, 
 
