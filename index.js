@@ -159,12 +159,16 @@ Final Score: awayTeam - homeTeam */
 function scoreboard(getInningScore, inning, numOfInnings) {
   
   const scores = [];
-  const homePerInning = 
+  let homeCumulative = 0;
+  let awayCumulative = 0;
+  
   for (let i = 0; i < numOfInnings; i++) {
     
     const currentInning = getInningScore(inning)
-    scores.push(`The ${i+1}st inning: Hometeam score: ${currentInning.Home} - Awayteam score: ${currentInning.Away}`)
-  
+    homeCumulative = homeCumulative + currentInning.Home;
+    awayCumulative = awayCumulative + currentInning.Away;
+    scores.push(`The ${i+1}st inning: Hometeam score: ${homeCumulative} - Awayteam score: ${awayCumulative}`)
+    
   }
    return scores;
   
