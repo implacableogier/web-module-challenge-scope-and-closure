@@ -150,8 +150,41 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+//create variables to store the value representing each team's score for each inning
+//create an array to push the results of each inning to and store.
+
+//create an array to store the results of each teams score, each inning/
+
+
+function scoreboard(getInningScore, inning, numOfInnings) {
+  
+  const scores = [];
+  const homePerInning = 
+  for (let i = 0; i < numOfInnings; i++) {
+    
+    const currentInning = getInningScore(inning)
+    scores.push(`The ${i+1}st inning: Hometeam score: ${currentInning.Home} - Awayteam score: ${currentInning.Away}`)
+  
+  }
+   return scores;
+  
 }
+console.log(scoreboard(getInningScore, inning, 9))
 
 
+
+
+//                      THIS is the callback
+function getInningScore(inning) {
+  
+
+  // could consolidate the following 2 lines into the return statement below
+  let homeTeam = inning();
+  let awayTeam = inning();
+
+  return {
+    Home: homeTeam,
+    Away: awayTeam
+  }
+}
+//                         This is the original
